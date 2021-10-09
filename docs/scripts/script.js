@@ -34,7 +34,7 @@ function loadDonators(donators) {
     if (donator.website)
       li += `<a href="${donator.website}" rel="nofollow" target="_blank" title="${donator.date}">`;
 
-    li += `<img class="donator__photo" src="${donator.photo}" alt="${donator.name}" title=${donator.date}>
+    li += `<img class="donator__photo" src="${donator.photo}" alt="${donator.name}" title=${donator.date} loading="lazy">
     <p class="donator__name">${donator.name}</p>`;
 
     if (donator.job) li += `<span class="donator__job">${donator.job}</span>`;
