@@ -34,8 +34,17 @@
   max-width: 40rem;
 }
 
+.section-donation__sort-order{
+  margin: 0 auto;
+  max-width: 14rem;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  color: rgb(36, 36, 36);
+}
+
 .section-donation__donators {
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: grid;
   padding-right: 0;
   grid-template-columns: repeat(3, 1fr);
