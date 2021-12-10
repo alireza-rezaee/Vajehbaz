@@ -31,7 +31,6 @@ async function createDonatorNodes(sortKey) {
   sortBy(sortKey);
   $('.section-donation__donators').empty();
   for (const donator of donators) {
-    
     donator.photo = donator.photo ? donator.photo : `https://eu.ui-avatars.com/api/?format=svg&background=random&name=${donator.name}`;
 
     var li = '';
@@ -39,10 +38,9 @@ async function createDonatorNodes(sortKey) {
     li = `<li class="donator">`;
 
     if (donator.website) li += `<a href="${donator.website}" rel="nofollow" target="_blank" title="${donator.date}">`;
-    
+
     li += `<img class="donator__photo" src="${donator.photo}" alt="${donator.name}" title=${donator.date} loading="lazy">
-      <p class="donator__name" ${donator.website?'style=color:blue;':''}>${donator.name}</p>`;
-    
+      <p class="donator__name" ${donator.website ? 'style=color:blue;' : ''}>${donator.name}</p>`;
 
     li += `<span class="donator__amount">${toPersianNumber(formatNumber(donator.amount))} تومان</span>`;
 
@@ -70,22 +68,22 @@ function formatNumber(x) {
 }
 
 function sortBy(key) {
-  if (key == 'date') {
-    donators.sort(function (a, b) {
-      return b.date.localeCompare(a.date);
-    });
-  } else if (key == 'amount') {
-    donators.sort(function (a, b) {
-      return b.amount - a.amount;
-    });
-  }
+  if (key == 'date') donators.sort((a, b) => b.date.localeCompare(a.date));
+  else if (key == 'amount') donators.sort((a, b) => b.amount - a.amount);
+  else if (key == 'alphabet') donators.sort((a, b) => a.name.localeCompare(b.name));
 
   if (key == 'date') {
-    $('.section-donation__date_link').css({"color":"blue", "font-weight":"bold"});
-    $('.section-donation__amount_link').removeAttr("style");
+    $('.section-donation__date_link').css({ color: 'blue', 'font-weight': 'bold' });
+    $('.section-donation__amount_link').removeAttr('style');
+    $('.section-donation__alphabet_link').removeAttr('style');
+  } else if (key == 'amount') {
+    $('.section-donation__amount_link').css({ color: 'blue', 'font-weight': 'bold' });
+    $('.section-donation__date_link').removeAttr('style');
+    $('.section-donation__alphabet_link').removeAttr('style');
   } else {
-    $('.section-donation__date_link').removeAttr("style");
-    $('.section-donation__amount_link').css({"color":"blue", "font-weight":"bold"});
+    $('.section-donation__alphabet_link').css({ color: 'blue', 'font-weight': 'bold' });
+    $('.section-donation__date_link').removeAttr('style');
+    $('.section-donation__amount_link').removeAttr('style');
   }
 }
 
