@@ -16,7 +16,7 @@
 
 ---
 
-[شرحِ تغییراتِ نسخهٔ ۵ در ویرگول](https://vrgl.ir/ORezt)
+[شرحِ تغییراتِ نسخهٔ ۵](https://vrgl.ir/ORezt)
   
 ایمیل: kokabi1365@gmail.com
 
