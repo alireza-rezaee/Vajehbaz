@@ -21,6 +21,8 @@
 ایمیل: kokabi1365@gmail.com
   
 حمایت مالی در ایران: https://idpay.ir/kokabi
+  
+حمایت مالی:
 
 ---
 
