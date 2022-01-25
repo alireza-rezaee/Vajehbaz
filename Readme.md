@@ -20,7 +20,7 @@
   
 ایمیل: kokabi1365@gmail.com
   
-**حمایت مالی:**
+حمایت مالی:
   
 ایران: https://github.com/kokabi1365/Vajehdan
 
