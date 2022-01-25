@@ -22,6 +22,7 @@
   
 حمایت مالی:
 ** ایران:** https://idpay.ir/kokabi
+
 **خارج از ایران**: 1LUbbaAGKFkaSXgDhD4AAc8i2kipW6Qh2R (بیت‌کوین)
 
 ---
