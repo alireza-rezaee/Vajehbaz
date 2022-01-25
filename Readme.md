@@ -20,8 +20,6 @@
   
 ایمیل: kokabi1365@gmail.com
   
-حمایت مالی: 
-
 ایران: https://github.com/kokabi1365/Vajehdan | خارج از ایران: 1LUbbaAGKFkaSXgDhD4AAc8i2kipW6Qh2R (بیت‌کوین) 
 ---
 
