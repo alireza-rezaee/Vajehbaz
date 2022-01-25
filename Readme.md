@@ -22,7 +22,7 @@
   
 حمایت مالی در ایران: https://idpay.ir/kokabi
   
-حمایت مالی در خارج از ایران: 1LUbbaAGKFkaSXgDhD4AAc8i2kipW6Qh2R
+حمایت مالی در خارج از ایران از طریق بیت‌کوین: 1LUbbaAGKFkaSXgDhD4AAc8i2kipW6Qh2R
 
 ---
 
