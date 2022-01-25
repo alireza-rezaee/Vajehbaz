@@ -19,6 +19,8 @@
 [شرحِ تغییراتِ نسخهٔ ۵](https://vrgl.ir/ORezt)
   
 ایمیل: kokabi1365@gmail.com
+  
+حمایت مالی: https://idpay.ir/kokabi یا 1 LUbbaAGKFkaSXgDhD4AAc8i2kipW6Qh2R (بیت‌کوین)
 
 ---
 
