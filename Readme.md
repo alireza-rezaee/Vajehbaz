@@ -22,7 +22,7 @@
   
 حمایت مالی در ایران: https://idpay.ir/kokabi
   
-حمایت مالی:
+حمایت مالی در خارج از ایران: 1LUbbaAGKFkaSXgDhD4AAc8i2kipW6Qh2R
 
 ---
 
