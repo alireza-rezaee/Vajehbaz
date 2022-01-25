@@ -27,7 +27,7 @@
 
 .btn span {
   display: block;
-  transform: translate(7px, 0);
+  transform: translate(15px, 0);
 }
 
 .btn svg {
