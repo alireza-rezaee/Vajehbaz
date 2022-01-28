@@ -16,8 +16,7 @@
 
 ---
 
-[شرحِ تغییراتِ نسخهٔ ۵](https://vrgl.ir/ORezt)
-  
+[دانلود](vajehdan.com)  
 ایمیل: kokabi1365@gmail.com
   
 **حمایت مالی از ایران**: https://idpay.ir/kokabi
