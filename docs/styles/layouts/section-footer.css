@@ -29,7 +29,12 @@
 }
 
 .section-footer__certifications{
-  height: 5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.section-footer img{
+  height: 6rem;
 }
 
 @media only screen and (max-width: 900px) {
