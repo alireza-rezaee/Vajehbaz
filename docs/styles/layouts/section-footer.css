@@ -28,6 +28,10 @@
   margin-bottom: -0.4rem;
 }
 
+.section-footer__certifications{
+  height: 5rem;
+}
+
 @media only screen and (max-width: 900px) {
   .section-footer {
     margin-top: 4rem;
