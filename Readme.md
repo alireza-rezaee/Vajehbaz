@@ -17,7 +17,7 @@
   
 ایمیل: kokabi1365@gmail.com
   
-**حمایت مالی**: https://idpay.ir/kokabi
+**حمایت مالی**: zarinp.al/kokabi
   
 **حمایت مالی از خارج از ایران (بیت‌کوین)**: 1LUbbaAGKFkaSXgDhD4AAc8i2kipW6Qh2R
 
