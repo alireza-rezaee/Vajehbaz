@@ -32,14 +32,25 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 15rem;
-  margin-bottom: 2rem;
   margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 .section-donation__description {
   margin: 0 auto;
   max-width: 40rem;
+}
+
+.section-donation__btc, .section-donation__eth{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: .8rem;
+  text-align: center;
+  line-height: .6;
+  color: gray;
+}
+
+.section-donation__eth{
+  margin-bottom: 4rem;
 }
 
 .section-donation__sort-order{
