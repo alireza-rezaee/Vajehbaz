@@ -33,25 +33,33 @@ namespace Vajehdan
 
         private void SetupHook()
         {
-
             var hotKeyManager = new HotKeyManager();
-            hotKeyManager.Register(Key.None, ModifierKeys.Alt);
-            hotKeyManager.KeyPressed += (_, _) =>
+
+            try
             {
-                if (!Helper.GetSettings().OpenByHotKey)
-                    return;
-
-                if (DateTime.Now - _lastKeyPressedTime > TimeSpan.FromMilliseconds(400))
+                hotKeyManager.Register(Key.None, ModifierKeys.Alt);
+                hotKeyManager.KeyPressed += (_, _) =>
                 {
-                    _lastKeyPressedTime = DateTime.Now;
-                    return;
-                }
+                    if (!Helper.GetSettings().OpenByHotKey)
+                        return;
 
-                foreach (var mainWindow in Helper.GetWindow<MainWindow>())
-                {
-                    mainWindow.ShowMainWindow();
-                }
-            };
+                    if (DateTime.Now - _lastKeyPressedTime > TimeSpan.FromMilliseconds(400))
+                    {
+                        _lastKeyPressedTime = DateTime.Now;
+                        return;
+                    }
+
+                    foreach (var mainWindow in Helper.GetWindow<MainWindow>())
+                    {
+                        mainWindow.ShowMainWindow();
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                hotKeyManager.Dispose();
+                ex.Log();
+            }
         }
 
         private void App_OnExit(object sender, ExitEventArgs e)
