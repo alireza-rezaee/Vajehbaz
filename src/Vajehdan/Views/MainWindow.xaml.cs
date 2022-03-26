@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
@@ -12,6 +14,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using Microsoft.Win32;
 using Vajehdan.Models;
 using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
@@ -125,6 +128,7 @@ namespace Vajehdan.Views
                 
                 if (Helper.GetSettings().FirstRun)
                 {
+                    StartByWindows();
                     Helper.GetSettings().FirstRun = false;
                     Helper.GetSettings().Save();
                     return;
@@ -145,6 +149,33 @@ namespace Vajehdan.Views
             }
 
         }
+
+        private void StartByWindows()
+        {
+            try
+            {
+                var appName = Assembly.GetEntryAssembly()?.GetName().Name;
+
+                var key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (key.GetValueNames().Contains(appName))
+                {
+                    return;
+                }
+                if (!Helper.GetSettings().StartByWindows)
+                {
+                    key?.DeleteValue(appName ?? string.Empty, false);
+                    return;
+                }
+
+                var value = Process.GetCurrentProcess().MainModule?.FileName;
+                key?.SetValue(appName, value ?? string.Empty);
+            }
+            catch (Exception ex)
+            {
+                ex.Log();
+            }
+        }
+
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F1)
