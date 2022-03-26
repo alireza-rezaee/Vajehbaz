@@ -12,7 +12,7 @@ namespace Vajehdan.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool StartByWindows {
             get {
                 return ((bool)(this["StartByWindows"]));
@@ -115,7 +115,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://kokabi1365.github.io/Vajehdan/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://vajehdan.com")]
         public string Website {
             get {
                 return ((string)(this["Website"]));
@@ -124,7 +124,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://idpay.ir/kokabi")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://vajehdan.com")]
         public string Donation {
             get {
                 return ((string)(this["Donation"]));
