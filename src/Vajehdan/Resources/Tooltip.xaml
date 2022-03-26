@@ -7,7 +7,7 @@
     <Style TargetType="ToolTip">
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="HasDropShadow" Value="True" />
-        <Setter Property="FontFamily" Value="{StaticResource VazirUi}" />
+        <Setter Property="FontFamily" Value="{StaticResource Vazirmatn}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="FontWeight" Value="Light" />

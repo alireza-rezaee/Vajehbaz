@@ -46,7 +46,7 @@
         <ToggleButton
             Checked="ToggleButton_OnChecked"
             FlowDirection="LeftToRight"
-            FontFamily="{StaticResource VazirUi}"
+            FontFamily="{StaticResource Vazirmatn}"
             IsChecked="{Binding IsChecked}" />
         <Label Content="{Binding Text, FallbackValue='نام آیتم'}" />
     </StackPanel>

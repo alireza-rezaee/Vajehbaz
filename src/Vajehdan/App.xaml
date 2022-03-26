@@ -13,7 +13,7 @@
 
                 <ResourceDictionary>
                     <WindowStartupLocation x:Key="Wsl">CenterScreen</WindowStartupLocation>
-                    <FontFamily x:Key="VazirUi">pack://application:,,,/Resources/Fonts/#Vazir FD-UI</FontFamily>
+                    <FontFamily x:Key="Vazirmatn">pack://application:,,,/Resources/Fonts/#Vazirmatn</FontFamily>
 
                     <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
                     <converters:ZeroToVisibilityConverter x:Key="ZeroToVisibilityConverter" />

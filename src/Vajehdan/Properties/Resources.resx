@@ -136,22 +136,4 @@
   <data name="Teyfi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dicts\Teyfi.dic;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="Vazir_Black_FD_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fonts\Vazir-Black-FD-UI.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Vazir_Bold_FD_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fonts\Vazir-Bold-FD-UI.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Vazir_Light_FD_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fonts\Vazir-Light-FD-UI.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Vazir_Medium_FD_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fonts\Vazir-Medium-FD-UI.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Vazir_Regular_FD_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fonts\Vazir-Regular-FD-UI.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Vazir_Thin_FD_UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fonts\Vazir-Thin-FD-UI.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

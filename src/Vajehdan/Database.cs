@@ -166,7 +166,7 @@ namespace Vajehdan
                     Foreground = new SolidColorBrush(Colors.Red),
                     Text = entry.Title + "\n"
                 };
-                var content = new Run { FontWeight = FontWeights.Thin, Text = entry.Content };
+                var content = new Run { FontWeight = FontWeights.UltraLight, Text = entry.Content };
                 p.Inlines.Add(title);
                 p.Inlines.Add(content);
                 flowDocument.Blocks.Add(p);

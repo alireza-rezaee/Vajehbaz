@@ -19,7 +19,7 @@ namespace Vajehdan.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -113,13 +113,7 @@ namespace Vajehdan.Properties {
         ///آب خالص
         ///آب خضر
         ///آب خنک
-        ///آب روان
-        ///آب زرشک
-        ///آب زمزم
-        ///آب زندگی
-        ///آب زیپو
-        ///آب زیرزمینی
-        ///آب ژاو [rest of string was truncated]&quot;;.
+        ///آب روان [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Emlaei {
             get {
@@ -276,13 +270,7 @@ namespace Vajehdan.Properties {
         ///آب‌کان، آب کانی
         ///*
         ///آب مقطر
-        ///چکیده آب، چکیدآب، چکه‌آب، چکیداب
-        ///*
-        ///آب نبات
-        ///شکرینه، شکربسته، شکرینه
-        ///*
-        ///آبا
-        /// [rest of string was truncated]&quot;;.
+        ///چکیده آب، چکیدآب، چکه‌آب [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Sereh {
             get {
@@ -316,66 +304,6 @@ namespace Vajehdan.Properties {
         public static string Teyfi {
             get {
                 return ResourceManager.GetString("Teyfi", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Vazir_Black_FD_UI {
-            get {
-                object obj = ResourceManager.GetObject("Vazir_Black_FD_UI", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Vazir_Bold_FD_UI {
-            get {
-                object obj = ResourceManager.GetObject("Vazir_Bold_FD_UI", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Vazir_Light_FD_UI {
-            get {
-                object obj = ResourceManager.GetObject("Vazir_Light_FD_UI", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Vazir_Medium_FD_UI {
-            get {
-                object obj = ResourceManager.GetObject("Vazir_Medium_FD_UI", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Vazir_Regular_FD_UI {
-            get {
-                object obj = ResourceManager.GetObject("Vazir_Regular_FD_UI", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Vazir_Thin_FD_UI {
-            get {
-                object obj = ResourceManager.GetObject("Vazir_Thin_FD_UI", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

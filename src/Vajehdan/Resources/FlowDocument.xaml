@@ -4,7 +4,7 @@
     xmlns:controls="clr-namespace:Vajehdan.Controls">
 
     <Style TargetType="{x:Type FlowDocument}">
-        <Setter Property="FontFamily" Value="{StaticResource VazirUi}" />
+        <Setter Property="FontFamily" Value="{StaticResource Vazirmatn}" />
         <Setter Property="TextAlignment" Value="Left" />
     </Style>
 

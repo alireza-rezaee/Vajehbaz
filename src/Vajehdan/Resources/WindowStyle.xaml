@@ -5,7 +5,7 @@
 
     <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
         <Setter Property="WindowStyle" Value="None" />
-        <Setter Property="FontFamily" Value="{StaticResource VazirUi}" />
+        <Setter Property="FontFamily" Value="{StaticResource Vazirmatn}" />
         <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="AllowsTransparency" Value="True" />
         <Setter Property="Background" Value="Transparent" />
@@ -58,7 +58,7 @@
                                     VerticalAlignment="Center"
                                     Panel.ZIndex="1"
                                     FlowDirection="RightToLeft"
-                                    FontFamily="{StaticResource VazirUi}"
+                                    FontFamily="{StaticResource Vazirmatn}"
                                     FontSize="14"
                                     FontWeight="Light"
                                     Text="{TemplateBinding Title}" />

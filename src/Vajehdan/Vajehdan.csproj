@@ -46,12 +46,6 @@
   </ItemGroup>
 
   <ItemGroup Label="Resources">
-    <Resource Include="Resources\Fonts\Vazir-Black-FD-UI.ttf" />
-    <Resource Include="Resources\Fonts\Vazir-Bold-FD-UI.ttf" />
-    <Resource Include="Resources\Fonts\Vazir-Light-FD-UI.ttf" />
-    <Resource Include="Resources\Fonts\Vazir-Medium-FD-UI.ttf" />
-    <Resource Include="Resources\Fonts\Vazir-Regular-FD-UI.ttf" />
-    <Resource Include="Resources\Fonts\Vazir-Thin-FD-UI.ttf" />
     <Resource Include="Resources\logo.ico" />
   </ItemGroup>
 
@@ -60,12 +54,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Fonts\Vazir-Black-FD-UI.ttf" />
-    <None Remove="Resources\Fonts\Vazir-Bold-FD-UI.ttf" />
-    <None Remove="Resources\Fonts\Vazir-Light-FD-UI.ttf" />
-    <None Remove="Resources\Fonts\Vazir-Medium-FD-UI.ttf" />
-    <None Remove="Resources\Fonts\Vazir-Regular-FD-UI.ttf" />
-    <None Remove="Resources\Fonts\Vazir-Thin-FD-UI.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-Black.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-Bold.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-Light.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-Medium.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-Regular.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-SemiBold.ttf" />
+    <None Remove="Resources\Fonts\Vazirmatn-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Vazirmatn-Black.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-ExtraBold.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-ExtraLight.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-Light.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-SemiBold.ttf" />
+    <Resource Include="Resources\Fonts\Vazirmatn-Thin.ttf" />
   </ItemGroup>
 
   <ItemGroup>

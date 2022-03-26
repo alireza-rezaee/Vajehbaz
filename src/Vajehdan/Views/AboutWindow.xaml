@@ -43,7 +43,7 @@
             Click="UpdateButton_OnClick"
             Content="دریافتِ نسخهٔ جدید"
             FlowDirection="RightToLeft"
-            FontFamily="{StaticResource VazirUi}"
+            FontFamily="{StaticResource Vazirmatn}"
             Style="{StaticResource RegularButtonStyle}"
             Visibility="{app:SettingBinding HasNewVersion,
                                             Converter={StaticResource BoolToVisibilityConverter},

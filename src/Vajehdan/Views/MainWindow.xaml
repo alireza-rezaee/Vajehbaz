@@ -16,7 +16,7 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FlowDirection="RightToLeft"
     FocusManager.FocusedElement="{Binding ElementName=SearchTextBox}"
-    FontFamily="{StaticResource VazirUi}"
+    FontFamily="{StaticResource Vazirmatn}"
     Icon="{StaticResource logo}"
     KeyDown="MainWindow_OnKeyDown"
     Loaded="MainWindow_OnLoaded"
@@ -380,6 +380,7 @@
                                     Document="{Binding ResultDoc, IsAsync=True}"
                                     IsInactiveSelectionHighlightEnabled="True"
                                     IsTabStop="False"
+                                    FontSize="14"
                                     MouseRightButtonUp="FlowDocumentReader_OnMouseRightButtonUp"
                                     Visibility="{Binding ResultDoc.Blocks.Count, Converter={StaticResource ZeroToVisibilityConverter}}" />
                             </DataTemplate>
@@ -416,7 +417,7 @@
                         <ContextMenu
                             Background="White"
                             FlowDirection="RightToLeft"
-                            FontFamily="{StaticResource VazirUi}"
+                            FontFamily="{StaticResource Vazirmatn}"
                             FontSize="14"
                             Placement="MousePoint"
                             Style="{StaticResource ContextMenuStyle}"
