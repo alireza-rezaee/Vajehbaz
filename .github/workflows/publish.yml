@@ -24,7 +24,10 @@ jobs:
       - name: Install .Net
         uses: actions/setup-dotnet@v1
         with:
-          dotnnet-version: ${{env.DOTNET_VERSION}}      
+          dotnnet-version: ${{env.DOTNET_VERSION}}     
+          
+      - name: Clean in release mode
+        run: dotnet clean --configuration Release
         
       - name: Compile in release mode
         run: dotnet build --configuration Release
