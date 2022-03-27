@@ -1,0 +1,59 @@
+name: publish
+
+on: 
+  workflow_dispatch
+    
+jobs:
+
+  publish:
+    runs-on: windows-latest
+    
+    env:
+      REPO_NAME: ${{ github.event.repository.name }}
+      DOTNET_VERSION: "5.0.x"
+      INNO_VERSION: 6.2.0
+      PROJECT_PATH: "./src/Vajehdan/Vajehdan.csproj"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Install .Net
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnnet-version: ${{env.DOTNET_VERSION}}      
+        
+      - name: Compile in release mode
+        run: dotnet build --configuration Release
+        
+      - name: Get assembly version
+        uses: kzrnm/get-net-sdk-project-versions-action@v1
+        id: get-version
+        with:
+          proj-path: ${{env.PROJECT_PATH}}        
+          
+      - name: Download InnoSetup
+        run: curl -L -o installer.exe http://files.jrsoftware.org/is/6/innosetup-${{ env.INNO_VERSION }}.exe        
+
+      - name: Install InnoSetup
+        run: ./installer.exe /verysilent /currentuser /dir=innoSetup
+
+      - name: Build setup file
+        run: ./innoSetup/iscc.exe ./setup.iss
+        
+      - name: Initialize Release
+        uses: actions/create-release@v1
+        id: create_release        
+        with:
+          tag_name: "v${{steps.get-version.outputs.version}}"
+          release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
+          
+      - name: Publish Release
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{env.GITHUB_TOKEN}}
+          file: "${{env.REPO_NAME}}.Setup.${{steps.get-version.outputs.version}}.exe"
+          release-url: ${{steps.create_release.outputs.upload_url}}
