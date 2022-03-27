@@ -44,8 +44,12 @@ jobs:
       - name: Install InnoSetup
         run: ./installer.exe /verysilent /currentuser /dir=innoSetup
 
-      - name: Build setup file
+      - name: Build setup
         run: ./innoSetup/iscc.exe ./setup.iss
+        
+      - name: Get latest version changelog
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
         
       - name: Initialize Release
         uses: actions/create-release@v1
@@ -53,6 +57,7 @@ jobs:
         with:
           tag_name: "v${{steps.get-version.outputs.version}}"
           release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
+          body: ${{ steps.changelog_reader.outputs.changes }}
           
       - name: Publish Release
         uses: csexton/release-asset-action@v2
