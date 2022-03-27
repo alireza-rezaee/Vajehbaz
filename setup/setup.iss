@@ -8,7 +8,7 @@
        Local[0], Local[1], Local[2], Local[3]), \
    Str(Local[0]) + "." + Str(Local[1]) + "." + Str(Local[2])
 
-#define MyAppURL "https://kokabi1365.github.io/Vajehdan/"
+#define MyAppURL "https://vajehdan.com"
 
 [Setup]  
 AppId={{57847BF6-6691-4CF6-98D7-4692205872F6}
@@ -32,7 +32,7 @@ DisableProgramGroupPage=yes
 
 
 [Files]
-Source: "..\artifacts\release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs;
+Source: "..\src\Vajehdan\bin\release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs;
 Source: "netcorecheck_x64.exe"; DestDir: "{tmp}"; Flags: ignoreversion deleteafterinstall
 Source: "netcorecheck.exe"; DestDir: "{tmp}"; Flags: ignoreversion deleteafterinstall; AfterInstall : DownloadInstallDotNet;
 
@@ -138,41 +138,3 @@ begin
       InstallDotNet
    end; 
 end;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
