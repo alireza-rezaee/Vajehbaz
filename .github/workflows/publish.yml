@@ -13,7 +13,8 @@ jobs:
       DOTNET_VERSION: "5.0.x"
       INNO_VERSION: 6.2.0
       PROJECT_PATH: "./src/Vajehdan/Vajehdan.csproj"
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+      SETUP_PATH: "./setup/setup.iss"
       
     steps:
       - name: Checkout
@@ -45,7 +46,7 @@ jobs:
         run: ./installer.exe /verysilent /currentuser /dir=innoSetup
 
       - name: Build setup
-        run: ./innoSetup/iscc.exe ./setup.iss
+        run: ./innoSetup/iscc.exe ${{env.SETUP_PATH}}
         
       - name: Get latest version changelog
         id: changelog_reader
