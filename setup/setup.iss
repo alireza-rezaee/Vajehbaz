@@ -4,7 +4,7 @@
 
 //Return app version in SemVer (for example: 4.0.2.3 => 4.0.2)
 #define AppVersion() \
-   GetVersionComponents("..\artifacts\release\"+AppExeName, \
+   GetVersionComponents("..\src\Vajehdan\bin\release\"+AppExeName, \
        Local[0], Local[1], Local[2], Local[3]), \
    Str(Local[0]) + "." + Str(Local[1]) + "." + Str(Local[2])
 
@@ -19,7 +19,7 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={userappdata}\{#AppName}
-OutputDir=..\artifacts
+OutputDir=..\.
 DefaultGroupName={#AppName}
 OutputBaseFilename=Vajehdan.Setup.{#AppVersion}
 SetupIconFile=setup.ico
