@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + حل مشکل اجرا نشدن برنامه با ویندوز
 + تغییر آدرس سایت در صفحهٔ دربارهٔ ما به دامنهٔ جدید
 </div>
+
 ## [5.0.1] - 2021-06-02
 
 <div dir="rtl">
