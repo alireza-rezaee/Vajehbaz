@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 + حل یک باگِ اساسی: پیدانکردنِ کلماتِ حاویِ آیِ با کلاه؛ مثلِ «آشوب»
 </div>
+
 ## [5.0.0] - 2021-05-31
 
 <div dir="rtl">
