@@ -15,11 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + تغییر آدرس سایت در صفحهٔ دربارهٔ ما به دامنهٔ جدید
 </div>
 ## [5.0.1] - 2021-06-02
+
 <div dir="rtl">
 
 + حل یک باگِ اساسی: پیدانکردنِ کلماتِ حاویِ آیِ با کلاه؛ مثلِ «آشوب»
 </div>
 ## [5.0.0] - 2021-05-31
+
 <div dir="rtl">
 
 + بازطراحیِ کامل برنامه برای بهبودِ نمایشِ نتایج
@@ -37,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + ساختِ فایلِ ستاپ برای نصبِ آسان
 </div>
 ## [4.2.0] - 2020-05-05
+
 <div dir="rtl">
 
 + حل مشکل پیدا نشدن بعضی از کلمات #23
@@ -45,12 +48,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + تغییرات جزئی در واسط کاربری
 </div>
 ## [4.1.1] - 2020-04-18
+
 <div dir="rtl">
 
 + حل مشکل بسته نشدن پنجرۀ جستجو هنگام کلیک خارج از آن
 + حل مشکل اسکرول نشدن نتایج
 </div>
 ## [4.1.0] - 2020-04-15
+
 <div dir="rtl">
 + حل مشکل فعال نبودن تایپ #16
 + تغییر کلید میانبر
@@ -59,6 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + بهبود سرعت جستجو
 </div>
 ## [4.0.0] - 2020-04-12
+
 <div dir="rtl">
 
 + بازنویسی کامل هستۀ برنامه
@@ -76,12 +82,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + و چند تغییر جزئی و بهینه‌سازی ظاهری
 </div>
 ## [3.1.0] - 2019-12-23
+
 <div dir="rtl">
 + تغییر نام برنامه از واژه‌یار به واژه‌دان
 + حل مشکل جستجوی کلمات اعراب‌دار
 + و پاره‌ای تغییرات جزئی
 </div>
 ## [3.0.0] - 2019-10-20
+
 <div dir="rtl">
 
 + اضافه شدن فرهنگ املایی
@@ -93,6 +101,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + بهبودهای ظاهری
 </div>
 ## [2.0.0] - 2019-07-06
+
 <div dir="rtl">
 
 + تفکیک واژه‌ها و بهبود نمایش نتایج جستجو
@@ -105,6 +114,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + حل مشکلات گزارش شده
 </div>
 ## [1.0.0] - 2019-05-28
+
 <div dir="rtl">
 
 + امکان تعریف فونت دلخواه و تغییر اندازۀ کلمات در صفحۀ نتایج
@@ -117,5 +127,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + بهبودهایی در رابط کاربری
 </div>
 ## [0.1.0] - 2019-05-14
+
 
 
