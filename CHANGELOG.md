@@ -41,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + امکانِ پین‌کردنِ پنجرهٔ جستجو
 + ساختِ فایلِ ستاپ برای نصبِ آسان
 </div>
+
 ## [4.2.0] - 2020-05-05
 
 <div dir="rtl">
@@ -50,6 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + بهبود سرعت جستجو
 + تغییرات جزئی در واسط کاربری
 </div>
+
 ## [4.1.1] - 2020-04-18
 
 <div dir="rtl">
@@ -57,6 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + حل مشکل بسته نشدن پنجرۀ جستجو هنگام کلیک خارج از آن
 + حل مشکل اسکرول نشدن نتایج
 </div>
+
 ## [4.1.0] - 2020-04-15
 
 <div dir="rtl">
@@ -66,6 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + تغییر خودکار زبان به فارسی موقع بالا آوردن کادر جستجو
 + بهبود سرعت جستجو
 </div>
+
 ## [4.0.0] - 2020-04-12
 
 <div dir="rtl">
@@ -84,6 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + حل مشکل بسته نشدن منوی System Tray موقع کلیک خارج از آن
 + و چند تغییر جزئی و بهینه‌سازی ظاهری
 </div>
+
 ## [3.1.0] - 2019-12-23
 
 <div dir="rtl">
@@ -91,6 +96,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + حل مشکل جستجوی کلمات اعراب‌دار
 + و پاره‌ای تغییرات جزئی
 </div>
+
 ## [3.0.0] - 2019-10-20
 
 <div dir="rtl">
@@ -103,6 +109,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + رفع برخی مشکلات
 + بهبودهای ظاهری
 </div>
+
 ## [2.0.0] - 2019-07-06
 
 <div dir="rtl">
@@ -116,6 +123,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + تغییرات جزئی رابط کاربری
 + حل مشکلات گزارش شده
 </div>
+
 ## [1.0.0] - 2019-05-28
 
 <div dir="rtl">
@@ -129,6 +137,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 + حل برخی اشکالات جزئی
 + بهبودهایی در رابط کاربری
 </div>
+
 ## [0.1.0] - 2019-05-14
 
 
