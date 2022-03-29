@@ -93,6 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <div dir="rtl">
 + تغییر نام برنامه از واژه‌یار به واژه‌دان
+  
 + حل مشکل جستجوی کلمات اعراب‌دار
 + و پاره‌ای تغییرات جزئی
 </div>
