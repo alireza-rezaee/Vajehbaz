@@ -25,9 +25,16 @@ namespace Vajehdan
                     await client.Repository.Release.GetLatest(GetSettings().GithubId, GetSettings().GithubRepo);
 
                 var latestVersion = new Version(lastRelease.TagName);
+
                 var currentVersion = Assembly.GetEntryAssembly()?.GetName().Version;
 
                 GetSettings().HasNewVersion = latestVersion > currentVersion;
+
+                if (GetSettings().HasNewVersion)
+                {
+                    string appName = Assembly.GetExecutingAssembly().GetName().Name;
+                    GetSettings().DirectDownloadLink = $"{GetSettings().LatestChangelog}/download/{appName}.Setup.{latestVersion}.exe";
+                }
             }
             catch (Exception ex)
             {

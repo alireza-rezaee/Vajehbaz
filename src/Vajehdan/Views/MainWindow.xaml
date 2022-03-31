@@ -388,19 +388,27 @@
                     </TabControl>
                 </Grid>
 
-                <Button
-                    x:Name="UpdatedButton"
+                <StackPanel 
+                    Orientation="Vertical"
+                    Margin="0,15,0,-32"
+                    HorizontalAlignment="Center"
                     Grid.Row="4"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    Margin="0,15,0,-32"
-                    HorizontalAlignment="Center"
                     d:Visibility="Visible"
-                    Click="UpdatedButton_OnClick"
-                    Content="دریافتِ نسخهٔ جدید"
-                    Style="{StaticResource RegularButtonStyle}"
-                    Visibility="{app:SettingBinding HasNewVersion,
-                                                    Converter={StaticResource BoolToVisibilityConverter}}" />
+                    Visibility="{app:SettingBinding HasNewVersion,Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Button
+                        x:Name="UpdatedButton"
+                        Click="UpdatedButton_OnClick"
+                        Content="دریافتِ نسخهٔ جدید"
+                        Style="{StaticResource RegularButtonStyle}"/>
+                    <TextBlock TextAlignment="Center">           
+                        <Hyperlink NavigateUri="{app:SettingBinding LatestChangelog,Mode=OneWay}"  TextDecorations="{x:Null}" 
+                                   RequestNavigate="Hyperlink_RequestNavigate">
+                            تغییرات این نسخه
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
 
                 <tb:TaskbarIcon
                     x:Name="NotifyIcon"

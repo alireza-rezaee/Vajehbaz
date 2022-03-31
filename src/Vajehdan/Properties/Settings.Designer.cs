@@ -189,5 +189,29 @@ namespace Vajehdan.Properties {
                 this["FirstRun"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/kokabi1365/Vajehdan/releases/latest")]
+        public string LatestChangelog {
+            get {
+                return ((string)(this["LatestChangelog"]));
+            }
+            set {
+                this["LatestChangelog"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DirectDownloadLink {
+            get {
+                return ((string)(this["DirectDownloadLink"]));
+            }
+            set {
+                this["DirectDownloadLink"] = value;
+            }
+        }
     }
 }

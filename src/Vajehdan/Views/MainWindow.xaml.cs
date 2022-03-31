@@ -286,7 +286,7 @@ namespace Vajehdan.Views
         void FavoriteButton_OnClick(object sender, RoutedEventArgs e)
             => Helper.ShowWindow<FavoritesWindow>();
         private void UpdatedButton_OnClick(object sender, RoutedEventArgs e)
-            => Helper.OpenAppOrWebsite(Helper.GetSettings().Website);
+            => Helper.OpenAppOrWebsite(Helper.GetSettings().DirectDownloadLink);
 
         #endregion
 
@@ -469,5 +469,10 @@ namespace Vajehdan.Views
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Helper.OpenAppOrWebsite(e.Uri.ToString());
+        }
     }
 }
