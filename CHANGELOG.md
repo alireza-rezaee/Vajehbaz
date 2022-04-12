@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.2.1] - 2022-04-12
+
+<div dir="rtl">
+
++ تغییر آدرس سایت
+</div>
+
 ## [5.2.0] - 2022-03-31
 
 <div dir="rtl">
