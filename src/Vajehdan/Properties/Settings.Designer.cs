@@ -115,7 +115,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://vajehdan.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://kokabi1365.github.io/Vajehdan")]
         public string Website {
             get {
                 return ((string)(this["Website"]));
@@ -124,7 +124,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://vajehdan.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://kokabi1365.github.io/Vajehdan")]
         public string Donation {
             get {
                 return ((string)(this["Donation"]));
