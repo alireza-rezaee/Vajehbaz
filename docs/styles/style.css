@@ -5,10 +5,12 @@
 @import "base/global.css";
 
 @import "components/btn.css";
+@import "components/small-btn.css";
 @import "components/feature.css";
 @import "components/donator.css";
 
 @import "layouts/section-header.css";
+@import "layouts/section-download.css";
 @import "layouts/section-story.css";
 @import "layouts/section-features.css";
 @import "layouts/section-donation.css";

@@ -1,0 +1,9 @@
+.section-download__other{
+    display: flex;    
+    justify-content: center;
+    margin-top: .5rem;       
+}
+
+.section-download__x64{
+    margin-right: .3rem;
+}

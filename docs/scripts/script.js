@@ -1,9 +1,25 @@
 //This code inspired by https://github.com/rastikerdar/vazir-font/blob/gh-pages/index.html
 var donators = [];
 
-async function setDownloadLink() {
+async function setX86DownloadLink() {
+  const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[1].browser_download_url;
+  $('.section-download__x86').attr('href', downloadLink);
+}
+
+async function setX64DownloadLink() {
   const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[0].browser_download_url;
-  $('.section-header__btn').attr('href', downloadLink);
+  $('.section-download__x64').attr('href', downloadLink);
+}
+
+async function setDownloadLink() {
+  var downloadLink = '';
+
+  if (navigator.userAgent.includes('WOW64') || navigator.userAgent.includes('Win64')) {
+    downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[0].browser_download_url;
+  } else {
+    downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[1].browser_download_url;
+  }
+  $('.section-download__main').attr('href', downloadLink);
 }
 
 async function loadDonators() {
@@ -89,5 +105,7 @@ function sortBy(key) {
 
 $(async function () {
   await setDownloadLink();
+  await setX86DownloadLink();
+  await setX64DownloadLink();
   await loadDonators();
 });
