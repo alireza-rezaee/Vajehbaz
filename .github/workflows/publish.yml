@@ -10,11 +10,12 @@ jobs:
     
     env:
       REPO_NAME: ${{ github.event.repository.name }}
-      DOTNET_VERSION: "6.0.x"
-      INNO_VERSION: 6.2.0
+      DOTNET_VERSION: "6.0.6"
+      INNO_VERSION: 6.2.1
       PROJECT_PATH: "./src/Vajehdan/Vajehdan.csproj"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
-      SETUP_PATH: "./setup/setup.iss"
+      X86_SETUP_PATH: "./setup/setup-x86.iss"
+      X64_SETUP_PATH: "./setup/setup-x64.iss"
       
     steps:
       - name: Checkout
@@ -27,13 +28,13 @@ jobs:
         with:
           dotnnet-version: ${{env.DOTNET_VERSION}}
           
-      - name: Remove pervious publishs
+      - name: Remove pervious builds
         run: rm -rf x86 x64
         
-      - name: Build 32bit version in release mode
+      - name: Build x86 version
         run: dotnet publish -c release -a x86 -o x86
         
-      - name: Build 64bit version in release mode
+      - name: Build x64 version
         run: dotnet publish -c release -a x64 -o x64
         
       - name: Get assembly version
@@ -48,8 +49,11 @@ jobs:
       - name: Install InnoSetup
         run: ./installer.exe /verysilent /currentuser /dir=innoSetup
 
-      - name: Build setup
-        run: ./innoSetup/iscc.exe ${{env.SETUP_PATH}}
+      - name: Build x86 setup
+        run: ./innoSetup/iscc.exe ${{env.X86_SETUP_PATH}}
+        
+      - name: Build x64 setup
+        run: ./innoSetup/iscc.exe ${{env.X64_SETUP_PATH}}
         
       - name: Get latest version changelog
         id: changelog_reader
@@ -63,9 +67,11 @@ jobs:
           release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
           body: ${{ steps.changelog_reader.outputs.changes }}
           
-      - name: Publish Release
+      - name: Upload x86 Release
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}.Setup.${{steps.get-version.outputs.version}}.exe"
+          files: | 
+            "${{env.REPO_NAME}}Setup-x86-${{steps.get-version.outputs.version}}.exe"
+            "${{env.REPO_NAME}}Setup-x64-${{steps.get-version.outputs.version}}.exe"
           release-url: ${{steps.create_release.outputs.upload_url}}
