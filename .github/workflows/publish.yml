@@ -29,7 +29,9 @@ jobs:
           dotnnet-version: ${{env.DOTNET_VERSION}}
           
       - name: Remove pervious builds
-        run: rmdir x86 x64 /q /s
+        run: | 
+          if (Test-Path x86) {Remove-Item x86 -Force -Recurse}
+          if (Test-Path x64) {Remove-Item x64 -Force -Recurse}
         
       - name: Build x86 version
         run: dotnet publish -c release -a x86 -o x86
