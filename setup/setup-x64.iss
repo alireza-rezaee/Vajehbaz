@@ -25,6 +25,7 @@ OutputDir=..\.
 DefaultGroupName={#AppName}
 OutputBaseFilename=VajehdanSetup-{#Platform}-{#AppVersion}
 SetupIconFile=setup.ico
+UninstallDisplayIcon={app}\{#AppExeName}
 PrivilegesRequired=lowest
 DisableFinishedPage=yes
 DisableDirPage=yes
