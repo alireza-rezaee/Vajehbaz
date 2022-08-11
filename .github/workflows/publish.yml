@@ -19,14 +19,14 @@ jobs:
       
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       
       - name: Install .Net
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v2
         with:
-          dotnnet-version: ${{env.DOTNET_VERSION}}
+          dotnet-version: ${{env.DOTNET_VERSION}}
           
       - name: Remove pervious builds
         run: | 
