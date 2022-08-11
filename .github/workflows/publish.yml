@@ -67,7 +67,7 @@ jobs:
           release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
           body: ${{ steps.changelog_reader.outputs.changes }}
           
-      - name: Upload x86 Release
+      - name: Upload releases
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
