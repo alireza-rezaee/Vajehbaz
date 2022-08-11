@@ -1,102 +1,63 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup Label="Build">
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <OutputType>WinExe</OutputType>
-    <TargetCulture>fa-IR</TargetCulture>
-    <ProductName>واژه یار</ProductName>
-    <PublisherName>سید ایوب کوکبی</PublisherName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWindowsForms>true</UseWindowsForms>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
-    <Version>5.2.1</Version>
-    <AssemblyVersion>5.2.1</AssemblyVersion>
-    <FileVersion>5.2.1</FileVersion>
-  </PropertyGroup>
-
+    <PropertyGroup>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <OutputType>WinExe</OutputType>        
+        <TargetCulture>fa-IR</TargetCulture>
+        <ProductName>واژه‌دان</ProductName>
+        <PublisherName>سیدیوب کوکبی</PublisherName>      
+        <UseWPF>true</UseWPF>
+        <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
+        <Version>5.2.2</Version>
+        <AssemblyVersion>5.2.2</AssemblyVersion>
+        <FileVersion>5.2.2</FileVersion>        
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>        
+    </PropertyGroup>    
+    
     <ItemGroup>
-    <Compile Remove="obj\**" />
-    <EmbeddedResource Remove="obj\**" />
-    <None Remove="obj\**" />
-    <Page Remove="obj\**" />
-  </ItemGroup>
+        <Compile Remove="obj\**" />
+        <EmbeddedResource Remove="obj\**" />
+        <None Remove="obj\**" />
+        <Page Remove="obj\**" />
+        
+        <PackageReference Include="Ben.Demystifier" Version="0.4.1" />
+        <PackageReference Include="GlobalHotKeyCore" Version="1.2.0" />
+        <PackageReference Include="H.NotifyIcon.Wpf" Version="2.0.60" />
+        <PackageReference Include="Octokit" Version="2.0.0" />
+        <Resource Include="Resources\logo.ico" />
+        
+        <Compile Remove="Resources\WindowStyle.cs" />
+        
+        <Resource Include="Resources\Fonts\Vazirmatn-Black.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-Bold.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-ExtraBold.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-ExtraLight.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-Light.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-Medium.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-Regular.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-SemiBold.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-Thin.ttf" />
 
-  <ItemGroup Label="Package References">
-    <PackageReference Include="Ben.Demystifier" Version="0.3.0" />
-    <PackageReference Include="GlobalHotKeyCore" Version="1.2.0" />
-    <PackageReference Include="Hardcodet.NotifyIcon.Wpf.NetCore" Version="1.0.18" />
-    <PackageReference Include="Octokit" Version="0.50.0" />
-  </ItemGroup>
-
-  <ItemGroup Label="Resources">
-    <Resource Include="Resources\logo.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Resources\WindowStyle.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\Fonts\Vazirmatn-Black.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-Bold.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-ExtraBold.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-ExtraLight.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-Light.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-Medium.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-Regular.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-SemiBold.ttf" />
-    <None Remove="Resources\Fonts\Vazirmatn-Thin.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\Fonts\Vazirmatn-Black.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-Bold.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-ExtraBold.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-ExtraLight.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-Light.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-Medium.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-Regular.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-SemiBold.ttf" />
-    <Resource Include="Resources\Fonts\Vazirmatn-Thin.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>PublicSettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-
-
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        
+        <Compile Update="Properties\Settings.Designer.cs">
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
+        </Compile>
+        
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        
+        <None Update="Properties\Settings.settings">
+            <Generator>PublicSettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
+    </ItemGroup>
 </Project>
