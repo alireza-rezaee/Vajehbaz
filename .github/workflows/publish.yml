@@ -11,7 +11,7 @@ jobs:
     env:
       REPO_NAME: ${{ github.event.repository.name }}
       DOTNET_VERSION: "6.0.x"
-      INNO_VERSION: 6.2.0
+      INNO_VERSION: 6.2.1
       PROJECT_PATH: "./src/Vajehdan/Vajehdan.csproj"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
       X86_SETUP_PATH: "./setup/setup-x86.iss"
@@ -52,10 +52,10 @@ jobs:
         run: ./installer.exe /verysilent /currentuser /dir=innoSetup
 
       - name: Build x86 setup
-        run: ./innoSetup/iscc.exe ${{env.X86_SETUP_PATH}}
+        run: .\innoSetup\iscc.exe ${{env.X86_SETUP_PATH}}
         
       - name: Build x64 setup
-        run: ./innoSetup/iscc.exe ${{env.X64_SETUP_PATH}}
+        run: .\innoSetup\iscc.exe ${{env.X64_SETUP_PATH}}
         
       - name: Get latest version changelog
         id: changelog_reader
