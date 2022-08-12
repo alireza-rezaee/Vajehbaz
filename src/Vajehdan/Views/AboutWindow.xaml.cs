@@ -14,7 +14,7 @@ namespace Vajehdan.Views
 
         private void UpdateButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Helper.OpenAppOrWebsite(Helper.GetSettings().Website);
+            Helper.OpenAppOrWebsite(Helper.GetSettings().DirectDownloadLink);
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

@@ -33,7 +33,8 @@ namespace Vajehdan
                 if (GetSettings().HasNewVersion)
                 {
                     string appName = Assembly.GetExecutingAssembly().GetName().Name;
-                    GetSettings().DirectDownloadLink = $"{GetSettings().LatestChangelog}/download/{appName}.Setup.{latestVersion}.exe";
+                    string architecture = Environment.Is64BitOperatingSystem ? "x64" : "x86";
+                    GetSettings().DirectDownloadLink = $"{GetSettings().LatestChangelog}/download/{appName}Setup-{latestVersion}-{architecture}.exe";
                 }
             }
             catch (Exception ex)
