@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.2.3] - 2022-08-12
+
+<div dir="rtl">
+
+- حل مشکل دانلود آخرین نسخه از داخل برنامه
+  
+- حل مشکل نمایش لوگو در صفحهٔ درباره.
+
+</div>
+
 ## [5.2.2] - 2022-08-12
 
 <div dir="rtl">
