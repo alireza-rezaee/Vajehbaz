@@ -69,11 +69,16 @@ jobs:
           release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
           body: ${{ steps.changelog_reader.outputs.changes }}
           
-      - name: Publish Release
+      - name: Publish Release x86
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
-          file: |
-            "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86.exe"
-            "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64.exe"
+          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86.exe"
+          release-url: ${{steps.create_release.outputs.upload_url}}
+          
+      - name: Publish Release x64
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{env.GITHUB_TOKEN}}
+          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64.exe"
           release-url: ${{steps.create_release.outputs.upload_url}}
