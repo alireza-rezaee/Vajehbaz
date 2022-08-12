@@ -63,11 +63,18 @@ jobs:
         
       - name: Create Release        
         uses: ncipollo/release-action@v1
+        id: create_release
         with:
           name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
           tag: "${{steps.get-version.outputs.version}}"
-          body: ${{ steps.changelog_reader.outputs.changes }}
-          artifacts: |
-            "${{env.REPO_NAME}}Setup-x86-${{steps.get-version.outputs.version}}.exe"
-            "${{env.REPO_NAME}}Setup-x64-${{steps.get-version.outputs.version}}.exe"
+          body: ${{ steps.changelog_reader.outputs.changes }}          
           token: ${{env.GITHUB_TOKEN}}
+          
+      - name: Upload releases
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{env.GITHUB_TOKEN}}
+          files: | 
+            "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86.exe"
+            "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64.exe"
+          release-url: ${{steps.create_release.outputs.upload_url}}
