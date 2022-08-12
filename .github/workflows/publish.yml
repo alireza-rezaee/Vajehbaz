@@ -61,19 +61,13 @@ jobs:
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
         
-      - name: Initialize Release
-        uses: actions/create-release@v1
-        id: create_release        
+      - name: Create Release        
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: "${{steps.get-version.outputs.version}}"
-          release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
+          name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
+          tag: "${{steps.get-version.outputs.version}}"
           body: ${{ steps.changelog_reader.outputs.changes }}
-          
-      - name: Upload releases
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          files: | 
+          artifacts: |
             "${{env.REPO_NAME}}Setup-x86-${{steps.get-version.outputs.version}}.exe"
             "${{env.REPO_NAME}}Setup-x64-${{steps.get-version.outputs.version}}.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
+          token: ${{env.GITHUB_TOKEN}}
