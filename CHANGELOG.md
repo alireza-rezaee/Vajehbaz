@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <div dir="rtl">
 
-- حل مشکل دانلود آخرین نسخه از داخل برنامه.
+- اصلاح لینک دانلود از داخل برنامه.
   
 - حل مشکل نمایش لوگو در صفحهٔ درباره.
 
