@@ -73,5 +73,7 @@ jobs:
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86.exe"
+          file: |
+            "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86.exe"
+            "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64.exe"
           release-url: ${{steps.create_release.outputs.upload_url}}
