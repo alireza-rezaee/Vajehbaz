@@ -1,16 +1,13 @@
-<div dir="rtl">
+[![](https://img.shields.io/github/downloads/kokabi1365/vajehdan/total)](https://github.com/kokabi1365/Vajehdan/releases/latest)
+[![](https://img.shields.io/github/v/release/kokabi1365/vajehdan)](https://github.com/kokabi1365/Vajehdan/releases/latest)
+[![](https://img.shields.io/github/license/kokabi1365/vajehdan)](./LICENSE.md)
 
-<div dir="ltr">
-  
-![](https://img.shields.io/github/downloads/kokabi1365/vajehdan/total)
-![](https://img.shields.io/github/v/release/kokabi1365/vajehdan)
-![](https://img.shields.io/github/license/kokabi1365/vajehdan)
-  
-</div>
+<div dir="rtl">
   
 # واژه‌دان
 
 **[واژه‌دان](https://kokabi1365.github.io/Vajehdan)** با جستجویِ سریع در لغت‌نامه‌هایِ معتبرِ فارسی کمک می‌کند زیباتر بنویسید و اسیرِ واژه‌هایِ تکراری نشوید. با این برنامه می‌توانید مترادف و متضادِ کلماتِ فارسی را پیدا کنید. بینِ حجمِ عظیمی از اشعارِ فارسی جستجو کنید. از سرهم‌نویسی یا جدانویسیِ کلمات (کتابخانه یا کتاب‌خانه) مطلع شوید. معادلِ فارسیِ کلمات بیگانه را پیدا کنید. این برنامه نیاز به مراجعه به فرهنگ‌هایِ چاپی را تا حدِ زیادی کاهش می‌دهد و برای کسانی که به زیبانوشتن اهمیت می‌دهند کاربردهایِ فراوانی دارد.
-![](docs/assets/images/demo.gif)
+
+![واژه‌دان](docs/assets/images/demo.gif)
 
 </div>
