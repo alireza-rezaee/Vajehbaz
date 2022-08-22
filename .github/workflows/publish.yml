@@ -32,9 +32,7 @@ jobs:
         run: | 
           if (Test-Path x86) {Remove-Item x86 -Force -Recurse}
           if (Test-Path x64) {Remove-Item x64 -Force -Recurse}
-          if (Test-Path x64-portable) {Remove-Item x64-portable -Force -Recurse}
-          if (Test-Path x64-portable) {Remove-Item x64-portable -Force -Recurse}
-        
+          
       - name: Build x86 version
         run: dotnet publish -c release -a x86 -o x86
         
