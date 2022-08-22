@@ -13,7 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - اضافه‌شدن نسخهٔ پرتابلِ ۳۲ بیتی و ۶۴ بیتی.
 
-
 </div>
 
 ## [5.2.3] - 2022-08-12
