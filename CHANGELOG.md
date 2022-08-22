@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - اصلاح لینک دانلود.
   
 - حل مشکل نمایش لوگو در صفحهٔ درباره.
+
 </div>
 
 ## [5.2.2] - 2022-08-12
