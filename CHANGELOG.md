@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.2.4] - 2022-08-22
+
+<div dir="rtl">
+
+- اضافه‌شدن نسخهٔ پرتابل ۳۲ و ۶۴ بیتی.
+
+</div>
+
 ## [5.2.3] - 2022-08-12
 
 <div dir="rtl">
