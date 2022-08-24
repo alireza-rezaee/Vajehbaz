@@ -222,10 +222,12 @@ namespace Vajehdan.Views
             // Second condition: Half space in non-standard persian keyboard
             if (shift && space || ctrl && shift && two)
             {
+                int s = SearchTextBox.SelectionStart;
+                SearchTextBox.Text = SearchTextBox.Text.Insert(s, '\u200c'.ToString() );
+                
+                SearchTextBox.SelectionStart = s + 1;
+                SearchTextBox.SelectionLength = SearchTextBox.Text.Length;
                 e.Handled = true;
-                SearchTextBox.Text += "\u200c";
-                SearchTextBox.SelectionStart = SearchTextBox.Text.Length;
-                SearchTextBox.SelectionLength = 0;
             }
         }
         private async void SearchTextBox_OnKeyDown(object sender, KeyEventArgs e)
