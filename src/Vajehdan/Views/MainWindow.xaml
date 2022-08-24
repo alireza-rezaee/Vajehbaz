@@ -5,6 +5,7 @@
     xmlns:app="clr-namespace:Vajehdan"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Vajehdan"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     xmlns:tb="http://www.hardcodet.net/taskbar"
     Title="واژه‌دان"
@@ -375,14 +376,15 @@
                         </TabControl.ItemContainerStyle>
                         <TabControl.ContentTemplate>
                             <DataTemplate>
-                                <FlowDocumentReader
+                                <local:StyleableFlowDocumentReader
                                     x:Name="FlowDocumentReader"
                                     Document="{Binding ResultDoc, IsAsync=True}"
                                     IsInactiveSelectionHighlightEnabled="True"
                                     IsTabStop="False"
                                     FontSize="14"
                                     MouseRightButtonUp="FlowDocumentReader_OnMouseRightButtonUp"
-                                    Visibility="{Binding ResultDoc.Blocks.Count, Converter={StaticResource ZeroToVisibilityConverter}}" />
+                                    Visibility="{Binding ResultDoc.Blocks.Count, Converter={StaticResource ZeroToVisibilityConverter}}">
+                                </local:StyleableFlowDocumentReader>
                             </DataTemplate>
                         </TabControl.ContentTemplate>
                     </TabControl>
