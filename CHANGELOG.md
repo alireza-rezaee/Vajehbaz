@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.3.0] - 2022-08-26
+
+<div dir="rtl">
+
+- #49 - حل مشکل نیم‌فاصله در کادر جستجو. با تشکر از @Arasteh 
+  
+- #34 - حل مشکل تایپ نیم‌فاصله با Shift+Space در جستجوی داخلی. با تشکر از @Arasteh
+
+- #48 - انتشار نسخهٔ کم‌حجم بدون پیش‌نیازها. با تشکر از @Arasteh
+
+</div>
+
 ## [5.2.4] - 2022-08-22
 
 <div dir="rtl">
