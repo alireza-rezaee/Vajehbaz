@@ -94,7 +94,7 @@ jobs:
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x86-without-prerequisites.exe"
+          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86-without-prerequisites.exe"
           release-url: ${{steps.create_release.outputs.upload_url}}          
 
       - name: Publish x86
@@ -115,7 +115,7 @@ jobs:
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x64-without-prerequisites.exe"
+          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64-without-prerequisites.exe"
           release-url: ${{steps.create_release.outputs.upload_url}}
           
       - name: Publish x64
