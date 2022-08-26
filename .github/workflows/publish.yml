@@ -16,6 +16,8 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
       X86_SETUP_PATH: "./setup/setup-x86.iss"
       X64_SETUP_PATH: "./setup/setup-x64.iss"
+      X86_Without_Prerequisites: "./setup/setup-x86-without-prerequisites.iss"
+      X64_Without_Prerequisites: "./setup/setup-x64-without-prerequisites.iss"
       
     steps:
       - name: Checkout
@@ -33,10 +35,10 @@ jobs:
           if (Test-Path x86) {Remove-Item x86 -Force -Recurse}
           if (Test-Path x64) {Remove-Item x64 -Force -Recurse}
           
-      - name: Build x86 version
+      - name: Build x86
         run: dotnet publish -c release -a x86 -o x86
         
-      - name: Build x64 version
+      - name: Build x64
         run: dotnet publish -c release -a x64 -o x64
         
       - name: Get assembly version
@@ -57,10 +59,16 @@ jobs:
       - name: Build x64 setup
         run: .\innoSetup\iscc.exe ${{env.X64_SETUP_PATH}}
         
-      - name: Build x86-portable version
+      - name: Build x86 setup without prerequisites
+        run: .\innoSetup\iscc.exe ${{env.X86_Without_Prerequisites}}
+      
+      - name: Build x64 setup without prerequisites
+        run: .\innoSetup\iscc.exe ${{env.X64_Without_Prerequisites}}
+        
+      - name: Build x86-portable
         run: dotnet publish -c release -a x86 -o . -p:AssemblyName=Vajehdan-${{steps.get-version.outputs.version}}-x86-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
         
-      - name: Build x64-portable version
+      - name: Build x64-portable
         run: dotnet publish -c release -a x64 -o . -p:AssemblyName=Vajehdan-${{steps.get-version.outputs.version}}-x64-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
         
       - name: Get latest version changelog
@@ -73,32 +81,46 @@ jobs:
         with:
           tag_name: "${{steps.get-version.outputs.version}}"
           release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
-          body: ${{ steps.changelog_reader.outputs.changes }}
+          body: ${{ steps.changelog_reader.outputs.changes }}          
           
-      - name: Publish Release x86
+      - name: Publish x86-portable
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{env.GITHUB_TOKEN}}
+          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x86-portable.exe"
+          release-url: ${{steps.create_release.outputs.upload_url}}          
+          
+      - name: Publish x86 without prerequisites
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{env.GITHUB_TOKEN}}
+          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x86-without-prerequisites.exe"
+          release-url: ${{steps.create_release.outputs.upload_url}}          
+
+      - name: Publish x86
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
           file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86.exe"
           release-url: ${{steps.create_release.outputs.upload_url}}
-          
-      - name: Publish Release x64
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
-          
-      - name: Publish Release x86-portable
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x86-portable.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
-          
-      - name: Publish Release x64-portable
+
+      - name: Publish x64-portable
         uses: csexton/release-asset-action@v2
         with:
           github-token: ${{env.GITHUB_TOKEN}}
           file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x64-portable.exe"
+          release-url: ${{steps.create_release.outputs.upload_url}}
+
+      - name: Publish x64 without prerequisites
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{env.GITHUB_TOKEN}}
+          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x64-without-prerequisites.exe"
+          release-url: ${{steps.create_release.outputs.upload_url}}
+          
+      - name: Publish x64
+        uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{env.GITHUB_TOKEN}}
+          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64.exe"
           release-url: ${{steps.create_release.outputs.upload_url}}
