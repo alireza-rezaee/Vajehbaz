@@ -16,8 +16,8 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
       X86_SETUP_PATH: "./setup/setup-x86.iss"
       X64_SETUP_PATH: "./setup/setup-x64.iss"
-      X86_Without_Prerequisites: "./setup/setup-x86-without-prerequisites.iss"
-      X64_Without_Prerequisites: "./setup/setup-x64-without-prerequisites.iss"
+      X86_WITHOUT_PRE: "./setup/setup-x86-without-prerequisites.iss"
+      X64_WITHOUT_PRE: "./setup/setup-x64-without-prerequisites.iss"
       
     steps:
       - name: Checkout
@@ -60,10 +60,10 @@ jobs:
         run: .\innoSetup\iscc.exe ${{env.X64_SETUP_PATH}}
         
       - name: Build x86 setup without prerequisites
-        run: .\innoSetup\iscc.exe ${{env.X86_Without_Prerequisites}}
+        run: .\innoSetup\iscc.exe ${{env.X86_WITHOUT_PRE}}
       
       - name: Build x64 setup without prerequisites
-        run: .\innoSetup\iscc.exe ${{env.X64_Without_Prerequisites}}
+        run: .\innoSetup\iscc.exe ${{env.X64_WITHOUT_PRE}}
         
       - name: Build x86-portable
         run: dotnet publish -c release -a x86 -o . -p:AssemblyName=Vajehdan-${{steps.get-version.outputs.version}}-x86-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
