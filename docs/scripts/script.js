@@ -32,13 +32,13 @@ async function Generate_X86_Without_Prerequisites_Download_Link() {
 }
 
 async function Generate_Main_Download_Link() {
-  var downloadLink = '';
+  let downloadLink = '';  
 
-  if (navigator.userAgent.includes('WOW64') || navigator.userAgent.includes('Win64')) {
-    downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[0].browser_download_url;
-  } else {
-    downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[3].browser_download_url;
-  }
+  downloadLink = 
+    navigator.userAgent.includes('WOW64') || navigator.userAgent.includes('Win64') 
+    ? await getDownloadLink("x64.exe")
+    : await getDownloadLink("x86.exe");
+  
   $('.section-download__main').attr('href', downloadLink);
 }
 
@@ -132,12 +132,12 @@ function sortBy(key) {
 }
 
 $(async function () {
-  await Generate_X64_Download_Link();
   await Generate_Main_Download_Link();
+  await Generate_X64_Download_Link();
   await Generate_X86_Download_Link();
-  await Generate_X86_Without_Prerequisites_Download_Link();
-  await Generate_X64_Without_Prerequisites_Download_Link();
   await Generate_X86_Portable_Download_Link();
   await Generate_X64_Portable_Download_Link();
+  await Generate_X86_Without_Prerequisites_Download_Link();
+  await Generate_X64_Without_Prerequisites_Download_Link();
   await loadDonators();
 });
