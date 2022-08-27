@@ -2,35 +2,34 @@
 var donators = [];
 
 async function Generate_X64_Download_Link() {
-  const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[0].browser_download_url;
+  const downloadLink = await getDownloadLink("x64.exe");
   $('.x64').attr('href', downloadLink);
 }
 
-async function Generate_X64_Without_Prerequisites_Download_Link() {
-  const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[1].browser_download_url;
-  $('.x64-without-prerequisites').attr('href', downloadLink);
-}
-
-async function Generate_X64_Portable_Download_Link() {
-  const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[2].browser_download_url;
-  $('.x64-portable').attr('href', downloadLink);
-}
-
 async function Generate_X86_Download_Link() {
-  const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[3].browser_download_url;
+  const downloadLink = await getDownloadLink("x86.exe");
   $('.x86').attr('href', downloadLink);
 }
 
-async function Generate_X86_Without_Prerequisites_Download_Link() {
-  const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[4].browser_download_url;
-  $('.x86-without-prerequisites').attr('href', downloadLink);
+async function Generate_X64_Portable_Download_Link() {
+  const downloadLink = await getDownloadLink("x64-portable.exe");
+  $('.x64-portable').attr('href', downloadLink);
 }
 
 async function Generate_X86_Portable_Download_Link() {
-  const downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[5].browser_download_url;
+  const downloadLink = await getDownloadLink("x86-portable.exe");
   $('.x86-portable').attr('href', downloadLink);
 }
 
+async function Generate_X64_Without_Prerequisites_Download_Link() {
+  const downloadLink = await getDownloadLink("x64-without-prerequisites.exe");
+  $('.x64-without-prerequisites').attr('href', downloadLink);
+}
+
+async function Generate_X86_Without_Prerequisites_Download_Link() {
+  const downloadLink = await getDownloadLink("x86-without-prerequisites.exe");
+  $('.x86-without-prerequisites').attr('href', downloadLink);
+}
 
 async function Generate_Main_Download_Link() {
   var downloadLink = '';
@@ -41,6 +40,14 @@ async function Generate_Main_Download_Link() {
     downloadLink = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets[3].browser_download_url;
   }
   $('.section-download__main').attr('href', downloadLink);
+}
+
+async function getDownloadLink(endWith){
+  const assets = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets;  
+  const index = assets.findIndex(function (asset) {  return asset.name.endsWith(endWith)});
+  if (index == -1)  return await "https://github.com/kokabi1365/Vajehdan/releases/latest"  
+  const downloadLink = assets[index].browser_download_url;
+  return await downloadLink;
 }
 
 async function loadDonators() {
@@ -125,9 +132,9 @@ function sortBy(key) {
 }
 
 $(async function () {
+  await Generate_X64_Download_Link();
   await Generate_Main_Download_Link();
   await Generate_X86_Download_Link();
-  await Generate_X64_Download_Link();
   await Generate_X86_Without_Prerequisites_Download_Link();
   await Generate_X64_Without_Prerequisites_Download_Link();
   await Generate_X86_Portable_Download_Link();
