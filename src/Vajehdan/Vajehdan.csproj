@@ -24,19 +24,36 @@
         <PackageReference Include="GlobalHotKeyCore" Version="1.2.0" />
         <PackageReference Include="H.NotifyIcon.Wpf" Version="2.0.60" />
         <PackageReference Include="Octokit" Version="2.0.0" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-Black.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-Bold.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-ExtraBold.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-ExtraLight.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-Light.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-Medium.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-Regular.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-SemiBold.ttf" />
+        <Resource Include="Resources\Fonts\Vazirmatn-UI-FD-Thin.ttf" />
         <Resource Include="Resources\logo.ico" />
         
         <Compile Remove="Resources\WindowStyle.cs" />
         
-        <Resource Include="Resources\Fonts\Vazirmatn-Black.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-Bold.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-ExtraBold.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-ExtraLight.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-Light.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-Medium.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-Regular.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-SemiBold.ttf" />
-        <Resource Include="Resources\Fonts\Vazirmatn-Thin.ttf" />
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-Black.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-Bold.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-ExtraBold.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-ExtraLight.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-Light.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-Medium.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-Regular.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-SemiBold.ttf" />
+        
+        <None Remove="Resources\Fonts\Vazirmatn-UI-FD-Thin.ttf" />
 
         <Compile Update="Properties\Resources.Designer.cs">
             <DesignTime>True</DesignTime>
