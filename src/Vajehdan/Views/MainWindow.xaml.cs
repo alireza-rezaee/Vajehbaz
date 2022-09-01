@@ -387,9 +387,6 @@ namespace Vajehdan.Views
 
             foreach (var dic in Database.Dictionaries)
             {
-                if (dic.Name == "فرهنگستان" && !SearchQuery.IsAllCharEnglish())
-                    continue;
-
                 await Task.Run(() =>
                 {
                     Dispatcher.InvokeAsync(() =>
