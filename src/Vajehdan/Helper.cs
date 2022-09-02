@@ -34,7 +34,7 @@ namespace Vajehdan
                 {
                     string appName = Assembly.GetExecutingAssembly().GetName().Name;
                     string architecture = Environment.Is64BitOperatingSystem ? "x64" : "x86";
-                    GetSettings().DirectDownloadLink = $"{GetSettings().LatestChangelog}/download/{appName}Setup-{latestVersion}-{architecture}.exe";
+                    GetSettings().DirectDownloadLink = $"{GetSettings().LatestChangelog}/download/{appName}Setup-{latestVersion}-{architecture}-without-prerequisites.exe";
                 }
             }
             catch (Exception ex)
