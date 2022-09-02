@@ -25,7 +25,8 @@ namespace Vajehdan
         private void GetFindTextBox()
         {
             findTextBox = this.FindVisualChild("FindTextBox") as TextBox;
-            findTextBox.PreviewKeyDown += FindTextBox_PreviewKeyDown;
+            if (findTextBox!=null)
+                findTextBox.PreviewKeyDown += FindTextBox_PreviewKeyDown;
             ApplyFindTextBoxStyle();
         }
 
