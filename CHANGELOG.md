@@ -23,8 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - تغییر فونت از وزیرمتن معمولی به وزیرمتن کم‌ارتفاع و دارای اعداد فقط فارسی.
 
-- #48 - برخی بهبودهای جزئی دیگر.
-
 </div>
 
 ## [5.3.0] - 2022-08-27
