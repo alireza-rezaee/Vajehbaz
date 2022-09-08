@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Loader;
 using System.Runtime.Versioning;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GlobalHotKey;
+using Microsoft.Win32;
 using Vajehdan.Views;
 
 
@@ -26,9 +30,32 @@ namespace Vajehdan
                 Environment.Exit(-1);
             };
 #endif
+            StartUpByWindows();
             SetupHook();
             Database.LoadData();
             Helper.CheckNewVersion();
+        }
+
+        private void StartUpByWindows()
+        {
+            try
+            {
+                var appName = Assembly.GetEntryAssembly()?.GetName().Name;
+                var key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+                if (!key.GetValueNames().Contains(appName))
+                    return;
+
+                Helper.GetSettings().StartByWindows = true;
+                Helper.GetSettings().Save();
+                var value = Process.GetCurrentProcess().MainModule?.FileName;
+                key.SetValue(appName, value ?? string.Empty);
+
+            }
+            catch (Exception ex)
+            {
+                ex.Log();
+            }
         }
 
         private void SetupHook()
