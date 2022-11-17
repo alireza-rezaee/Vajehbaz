@@ -73,7 +73,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("kokabi1365")]
+        [global::System.Configuration.DefaultSettingValueAttribute("alireza-rezaee")]
         public string GithubId {
             get {
                 return ((string)(this["GithubId"]));
@@ -115,7 +115,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://kokabi1365.github.io/Vajehdan")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://alireza-rezaee.github.io/Vajehdan")]
         public string Website {
             get {
                 return ((string)(this["Website"]));
@@ -124,7 +124,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://kokabi1365.github.io/Vajehdan#donate")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://alireza-rezaee.github.io/Vajehdan#donate")]
         public string Donation {
             get {
                 return ((string)(this["Donation"]));
@@ -192,7 +192,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/kokabi1365/Vajehdan/releases/latest")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/alireza-rezaee/Vajehdan/releases/latest")]
         public string LatestChangelog {
             get {
                 return ((string)(this["LatestChangelog"]));

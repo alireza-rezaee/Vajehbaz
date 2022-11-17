@@ -43,9 +43,9 @@ async function Generate_Main_Download_Link() {
 }
 
 async function getDownloadLink(endWith){
-  const assets = (await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan/releases'))[0].assets;  
+  const assets = (await $.getJSON('https://api.github.com/repos/alireza-rezaee/vajehdan/releases'))[0].assets;  
   const index = assets.findIndex(function (asset) {  return asset.name.endsWith(endWith)});
-  if (index == -1)  return await "https://github.com/kokabi1365/Vajehdan/releases/latest"  
+  if (index == -1)  return await "https://github.com/alireza-rezaee/Vajehdan/releases/latest"  
   const downloadLink = assets[index].browser_download_url;
   return await downloadLink;
 }
@@ -59,7 +59,7 @@ async function loadDonators() {
 }
 
 async function setProjectLifeTimeAsync() {
-  const repo = await $.getJSON('https://api.github.com/repos/kokabi1365/vajehdan');
+  const repo = await $.getJSON('https://api.github.com/repos/alireza-rezaee/vajehdan');
   $('.section-donation__project-life-span').html(toPersianNumber(yearsSince(repo.created_at)));
 }
 

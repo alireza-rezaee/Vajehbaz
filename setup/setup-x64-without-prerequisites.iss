@@ -3,7 +3,7 @@
 #define AppName "Vajehdan"
 #define AppExeName AppName+".exe"
 #define dotnet_version "6.0.6"
-#define MyAppURL "https://kokabi1365.github.io/Vajehdan/"
+#define MyAppURL "https://alireza-rezaee.github.io/Vajehdan/"
 #define Platform "x64"
 
 //Return app version in SemVer (for example: 4.0.2.3 => 4.0.2)
