@@ -1,0 +1,22 @@
+.small-btn {
+    background-color: var(--primary-color-dark);
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    text-decoration: none;    
+    font-size: .9rem;
+    font-weight: 200;
+    text-align: center;  
+    overflow: hidden;    
+    box-sizing: border-box;       
+    color: white;    
+    display: inline-block;
+    position: relative; 
+    cursor: pointer;   
+  }
+
+  .small-btn:hover{
+    background-color: var(--primary-color-darker);
+  }
+  
+  
+  

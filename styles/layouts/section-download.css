@@ -1,0 +1,24 @@
+.section-download{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+.section-download__other{
+    margin-top: 1rem;
+    margin-left: .2rem;
+}
+
+.section-download__other .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-top: 0.8rem;
+}
+
+.section-download__other a{
+    margin-right: .5rem;
+}
+
