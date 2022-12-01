@@ -7,9 +7,9 @@
         <PublisherName>علیرضا رضائی</PublisherName>      
         <UseWPF>true</UseWPF>
         <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
-        <Version>5.4.0</Version>
-        <AssemblyVersion>5.4.0</AssemblyVersion>
-        <FileVersion>5.4.0</FileVersion>        
+        <Version>5.4.1</Version>
+        <AssemblyVersion>5.4.1</AssemblyVersion>
+        <FileVersion>5.4.1</FileVersion>        
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>        
     </PropertyGroup>    
