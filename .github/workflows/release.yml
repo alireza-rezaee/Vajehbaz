@@ -1,126 +1,127 @@
 name: Release
 
-on: 
+on:
   workflow_dispatch
-    
+
 jobs:
 
-  publish:
+  release:
     runs-on: windows-latest
-    
+
     env:
       REPO_NAME: ${{ github.event.repository.name }}
       DOTNET_VERSION: "6.0.x"
       INNO_VERSION: 6.2.1
       PROJECT_PATH: "./src/Vajehbaz/Vajehbaz.csproj"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
-      X86_SETUP_PATH: "./setup/setup-x86.iss"
-      X64_SETUP_PATH: "./setup/setup-x64.iss"
-      X86_WITHOUT_PRE: "./setup/setup-x86-without-prerequisites.iss"
-      X64_WITHOUT_PRE: "./setup/setup-x64-without-prerequisites.iss"
-      
+      X86_SETUP_PATH: './setup/setup-x86.iss'
+      X64_SETUP_PATH: './setup/setup-x64.iss'
+      X86_WITHOUT_PRE: './setup/setup-x86-without-prerequisites.iss'
+      X64_WITHOUT_PRE: './setup/setup-x64-without-prerequisites.iss'
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      
+
       - name: Install .Net
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: ${{env.DOTNET_VERSION}}
-          
-      - name: Remove pervious builds
-        run: | 
-          if (Test-Path x86) {Remove-Item x86 -Force -Recurse}
-          if (Test-Path x64) {Remove-Item x64 -Force -Recurse}
-          
-      - name: Build x86
-        run: dotnet publish -c release -a x86 -o x86
-        
-      - name: Build x64
-        run: dotnet publish -c release -a x64 -o x64
-        
+
+      - name: Install InnoSetup
+        shell: pwsh
+        run: |
+          Invoke-WebRequest "http://files.jrsoftware.org/is/6/innosetup-${{ env.INNO_VERSION }}.exe" -OutFile innosetup.exe
+          ./innosetup.exe /verysilent /currentuser /dir=innoSetup
+
       - name: Get assembly version
         uses: kzrnm/get-net-sdk-project-versions-action@v1
         id: get-version
         with:
-          proj-path: ${{env.PROJECT_PATH}}        
-          
-      - name: Download InnoSetup
-        run: curl -L -o installer.exe http://files.jrsoftware.org/is/6/innosetup-${{ env.INNO_VERSION }}.exe        
+          proj-path: ${{env.PROJECT_PATH}}
 
-      - name: Install InnoSetup
-        run: ./installer.exe /verysilent /currentuser /dir=innoSetup
-
-      - name: Build x86 setup
-        run: .\innoSetup\iscc.exe ${{env.X86_SETUP_PATH}}
-        
-      - name: Build x64 setup
-        run: .\innoSetup\iscc.exe ${{env.X64_SETUP_PATH}}
-        
-      - name: Build x86 setup without prerequisites
-        run: .\innoSetup\iscc.exe ${{env.X86_WITHOUT_PRE}}
-      
-      - name: Build x64 setup without prerequisites
-        run: .\innoSetup\iscc.exe ${{env.X64_WITHOUT_PRE}}
-        
-      - name: Build x86-portable
-        run: dotnet publish -c release -a x86 -o . -p:AssemblyName=Vajehbaz-${{steps.get-version.outputs.version}}-x86-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
-        
-      - name: Build x64-portable
-        run: dotnet publish -c release -a x64 -o . -p:AssemblyName=Vajehbaz-${{steps.get-version.outputs.version}}-x64-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
-        
       - name: Get latest version changelog
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
-        
-      - name: Initialize Release
-        uses: actions/create-release@v1
-        id: create_release        
         with:
-          tag_name: "${{steps.get-version.outputs.version}}"
-          release_name: "${{env.REPO_NAME}} ${{steps.get-version.outputs.version}}"
-          body: ${{ steps.changelog_reader.outputs.changes }}          
-          
+          version: v${{ steps.get-version.outputs.version }}
+
+      - name: Set variables
+        shell: bash
+        run: |
+          echo 'X86_PORTABLE_EXE_FILENAME=${{ env.REPO_NAME }}-v${{ steps.get-version.outputs.version }}-x86-Portable.exe'                    >> $GITHUB_ENV
+          echo 'X64_PORTABLE_EXE_FILENAME=${{ env.REPO_NAME }}-v${{ steps.get-version.outputs.version }}-X64-Portable.exe'                    >> $GITHUB_ENV
+          echo 'X86_SETUP_EXE_FILENAME=${{ env.REPO_NAME }}Setup-v${{ steps.get-version.outputs.version }}-x86.exe'                           >> $GITHUB_ENV
+          echo 'X64_SETUP_EXE_FILENAME=${{ env.REPO_NAME }}Setup-v${{ steps.get-version.outputs.version }}-x64.exe'                           >> $GITHUB_ENV
+          echo 'X86_SETUP_PRE_EXE_FILENAME=${{ env.REPO_NAME }}Setup-v${{ steps.get-version.outputs.version }}-x86-without-prerequisites.exe' >> $GITHUB_ENV
+          echo 'X64_SETUP_PRE_EXE_FILENAME=${{ env.REPO_NAME }}Setup-v${{ steps.get-version.outputs.version }}-x64-without-prerequisites.exe' >> $GITHUB_ENV
+
+      - name: Clean
+        shell: pwsh
+        run: |
+          dotnet clean
+          if (Test-Path x86) {Remove-Item x86 -Force -Recurse}
+          if (Test-Path x64) {Remove-Item x64 -Force -Recurse}
+
       - name: Publish x86
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
+        run: dotnet publish -c release -a x86 -o x86
 
       - name: Publish x64
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
-          
-      - name: Publish x86 without prerequisites
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x86-without-prerequisites.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
+        run: dotnet publish -c release -a x64 -o x64
 
-      - name: Publish x64 without prerequisites
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}Setup-${{steps.get-version.outputs.version}}-x64-without-prerequisites.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
+      - name: Publish x86 (Portable)
+        shell: pwsh
+        run: dotnet publish -c release -a x86 -o . -p:AssemblyName="${{ env.REPO_NAME }}-v${{ steps.get-version.outputs.version }}-x86-Portable" -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
 
-      - name: Publish x86-portable
-        uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x86-portable.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
+      - name: Publish x64 (Portable)
+        shell: pwsh
+        run: dotnet publish -c release -a x64 -o . -p:AssemblyName="${{ env.REPO_NAME }}-v${{ steps.get-version.outputs.version }}-x64-Portable" -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
 
-      - name: Publish x64-portable
-        uses: csexton/release-asset-action@v2
+      - name: Publish Setup x86
+        run: .\innoSetup\ISCC.exe ${{ env.X86_SETUP_PATH }}
+
+      - name: Publish Setup x64
+        run: .\innoSetup\ISCC.exe ${{ env.X64_SETUP_PATH }}
+
+      - name: Publish Setup x86 (without prerequisites)
+        run: .\innoSetup\ISCC.exe ${{ env.X86_WITHOUT_PRE }}
+
+      - name: Publish Setup x64 (without prerequisites)
+        run: .\innoSetup\ISCC.exe ${{ env.X64_WITHOUT_PRE }}
+
+      - name: Publish SHA-256 checksum(s)
+        shell: pwsh
+        run: |
+          "### SHA-256 checksums:" > checksums.md
+          "- **${{ env.X86_PORTABLE_EXE_FILENAME }}**`n  - $((Get-fileHash ${{ env.X86_PORTABLE_EXE_FILENAME }}).Hash)"     >> checksums.md
+          "- **${{ env.X64_PORTABLE_EXE_FILENAME }}**`n  - $((Get-fileHash ${{ env.X64_PORTABLE_EXE_FILENAME }}).Hash)"     >> checksums.md
+          "- **${{ env.X86_SETUP_EXE_FILENAME }}**`n  - $((Get-fileHash ${{ env.X86_SETUP_EXE_FILENAME }}).Hash)"           >> checksums.md
+          "- **${{ env.X64_SETUP_EXE_FILENAME }}**`n  - $((Get-fileHash ${{ env.X64_SETUP_EXE_FILENAME }}).Hash)"           >> checksums.md
+          "- **${{ env.X86_SETUP_PRE_EXE_FILENAME }}**`n  - $((Get-fileHash ${{ env.X86_SETUP_PRE_EXE_FILENAME }}).Hash)"   >> checksums.md
+          "- **${{ env.X64_SETUP_PRE_EXE_FILENAME }}**`n  - $((Get-fileHash ${{ env.X64_SETUP_PRE_EXE_FILENAME }}).Hash)"   >> checksums.md
+
+      - name: Prepair release body
+        shell: bash
+        run: |
+          echo -e "${{ steps.changelog_reader.outputs.changes }}" >> release-note.md
+          echo "" >> release-note.md
+          cat checksums.md >> release-note.md
+
+      - name: Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
         with:
-          github-token: ${{env.GITHUB_TOKEN}}
-          file: "${{env.REPO_NAME}}-${{steps.get-version.outputs.version}}-x64-portable.exe"
-          release-url: ${{steps.create_release.outputs.upload_url}}
+          token: ${{ env.GITHUB_TOKEN }}
+          tag_name: "v${{ steps.get-version.outputs.version }}"
+          name: "${{ env.REPO_NAME }} v${{ steps.get-version.outputs.version }}"
+          body_path: release-note.md
+          files: |
+            checksums.md
+            ${{ env.X86_PORTABLE_EXE_FILENAME }}
+            ${{ env.X64_PORTABLE_EXE_FILENAME }}
+            ${{ env.X86_SETUP_EXE_FILENAME }}
+            ${{ env.X64_SETUP_EXE_FILENAME }}
+            ${{ env.X86_SETUP_PRE_EXE_FILENAME }}
+            ${{ env.X64_SETUP_PRE_EXE_FILENAME }}
