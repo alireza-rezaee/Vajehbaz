@@ -12,7 +12,7 @@ jobs:
       REPO_NAME: ${{ github.event.repository.name }}
       DOTNET_VERSION: "6.0.x"
       INNO_VERSION: 6.2.1
-      PROJECT_PATH: "./src/Vajehdan/Vajehdan.csproj"
+      PROJECT_PATH: "./src/Vajehbaz/Vajehbaz.csproj"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
       X86_SETUP_PATH: "./setup/setup-x86.iss"
       X64_SETUP_PATH: "./setup/setup-x64.iss"
@@ -66,10 +66,10 @@ jobs:
         run: .\innoSetup\iscc.exe ${{env.X64_WITHOUT_PRE}}
         
       - name: Build x86-portable
-        run: dotnet publish -c release -a x86 -o . -p:AssemblyName=Vajehdan-${{steps.get-version.outputs.version}}-x86-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
+        run: dotnet publish -c release -a x86 -o . -p:AssemblyName=Vajehbaz-${{steps.get-version.outputs.version}}-x86-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
         
       - name: Build x64-portable
-        run: dotnet publish -c release -a x64 -o . -p:AssemblyName=Vajehdan-${{steps.get-version.outputs.version}}-x64-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
+        run: dotnet publish -c release -a x64 -o . -p:AssemblyName=Vajehbaz-${{steps.get-version.outputs.version}}-x64-portable -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
         
       - name: Get latest version changelog
         id: changelog_reader

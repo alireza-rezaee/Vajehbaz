@@ -1,9 +1,9 @@
 // https://github.com/DomGries/InnoDependencyInstaller
 
-#define AppName "Vajehdan"
+#define AppName "Vajehbaz"
 #define AppExeName AppName+".exe"
 #define dotnet_version "6.0.6"
-#define MyAppURL "https://alireza-rezaee.github.io/Vajehdan/"
+#define MyAppURL "https://alireza-rezaee.github.io/Vajehbaz/"
 #define Platform "x64"
 
 //Return app version in SemVer (for example: 4.0.2.3 => 4.0.2)
@@ -23,7 +23,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={userappdata}\{#AppName}
 OutputDir=..\.
 DefaultGroupName={#AppName}
-OutputBaseFilename=VajehdanSetup-{#AppVersion}-{#Platform}
+OutputBaseFilename=VajehbazSetup-{#AppVersion}-{#Platform}
 SetupIconFile=setup.ico
 UninstallDisplayIcon={app}\{#AppExeName}
 PrivilegesRequired=lowest
