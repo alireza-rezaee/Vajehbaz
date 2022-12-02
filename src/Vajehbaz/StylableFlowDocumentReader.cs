@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -25,7 +21,7 @@ namespace Vajehbaz
         private void GetFindTextBox()
         {
             findTextBox = this.FindVisualChild("FindTextBox") as TextBox;
-            if (findTextBox!=null)
+            if (findTextBox != null)
                 findTextBox.PreviewKeyDown += FindTextBox_PreviewKeyDown;
             ApplyFindTextBoxStyle();
         }

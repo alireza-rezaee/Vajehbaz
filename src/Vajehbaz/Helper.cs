@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Octokit;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -7,7 +8,6 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media.Animation;
-using Octokit;
 using Vajehbaz.Properties;
 using Application = System.Windows.Application;
 
@@ -63,7 +63,7 @@ namespace Vajehbaz
 
         }
 
-        public static  void Log(this Exception ex)
+        public static void Log(this Exception ex)
         {
             var text = $"\n\n{DateTime.Now}\n{ex.ToStringDemystified()}";
             string path = Path.Combine(GetAppFolderPath(), "log.txt");
@@ -207,7 +207,7 @@ namespace Vajehbaz
             return enumerable.OrderBy(_ => r.Next()).ToList();
         }
 
-        public static T GetActiveWindow<T>() where T:Window
+        public static T GetActiveWindow<T>() where T : Window
         {
             return Application.Current.Windows.OfType<T>().SingleOrDefault(x => x.IsActive);
         }

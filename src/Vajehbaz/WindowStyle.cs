@@ -17,7 +17,7 @@ namespace Vajehbaz
         {
             var window = (Window)((FrameworkElement)sender).TemplatedParent;
             if (e.ChangedButton == MouseButton.Left)
-                window.DragMove(); 
+                window.DragMove();
         }
 
         private void CloseButton_OnClick(object sender, RoutedEventArgs e)
@@ -30,8 +30,8 @@ namespace Vajehbaz
         private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
         {
             var window = (Window)((FrameworkElement)sender).TemplatedParent;
-            
-            if (window.GetType()==typeof(FavoritesWindow))
+
+            if (window.GetType() == typeof(FavoritesWindow))
                 return;
 
             Helper.MakeWindowCenterScreen(window);

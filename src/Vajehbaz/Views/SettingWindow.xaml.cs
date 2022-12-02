@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Versioning;
 using System.Windows;
-using Microsoft.Win32;
 using Vajehbaz.Controls;
 
 namespace Vajehbaz.Views
@@ -42,7 +42,7 @@ namespace Vajehbaz.Views
             {
                 ex.Log();
             }
-            
+
         }
 
         private void ResetButton_OnClick(object sender, RoutedEventArgs e)

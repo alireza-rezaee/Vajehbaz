@@ -11,8 +11,8 @@ namespace Vajehbaz.Converters
         {
             if (value != null)
             {
-                var count = (int) value;
-                return count==0 ? Visibility.Visible : Visibility.Collapsed;
+                var count = (int)value;
+                return count == 0 ? Visibility.Visible : Visibility.Collapsed;
             }
 
             return Visibility.Visible;

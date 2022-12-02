@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,7 +15,6 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using Microsoft.Win32;
 using Vajehbaz.Models;
 using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
@@ -125,7 +125,7 @@ namespace Vajehbaz.Views
             if (CloseButton.Content.ToString() == "_")
             {
                 Helper.MakeWindowCenterScreen(this);
-                
+
                 if (Helper.GetSettings().FirstRun)
                 {
                     StartByWindows();
@@ -223,8 +223,8 @@ namespace Vajehbaz.Views
             if (shift && space || ctrl && shift && two)
             {
                 int s = SearchTextBox.SelectionStart;
-                SearchTextBox.Text = SearchTextBox.Text.Insert(s, '\u200c'.ToString() );
-                
+                SearchTextBox.Text = SearchTextBox.Text.Insert(s, '\u200c'.ToString());
+
                 SearchTextBox.SelectionStart = s + 1;
                 SearchTextBox.SelectionLength = SearchTextBox.Text.Length;
                 e.Handled = true;

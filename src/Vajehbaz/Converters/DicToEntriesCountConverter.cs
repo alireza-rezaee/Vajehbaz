@@ -7,13 +7,13 @@ using Vajehbaz.Models;
 
 namespace Vajehbaz.Converters
 {
-    class DicToEntriesCountConverter:IValueConverter
+    class DicToEntriesCountConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             int sum = 0;
-            var dics = ((ObservableCollection<Dic>) value)?.ToList();
-            dics?.ForEach(d=>sum+=d.Entries.Count);
+            var dics = ((ObservableCollection<Dic>)value)?.ToList();
+            dics?.ForEach(d => sum += d.Entries.Count);
             return sum.ToString("N0");
         }
 

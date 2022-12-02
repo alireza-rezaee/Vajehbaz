@@ -12,7 +12,7 @@ namespace Vajehbaz.Controls
     [SupportedOSPlatform("windows7.0")]
     public partial class CustomContextMenu
     {
-        
+
         public CustomContextMenu()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace Vajehbaz.Controls
 
         private async void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            var selectedText="";
+            var selectedText = "";
 
             if (PlacementTarget is FlowDocumentPageViewer)
             {
@@ -42,12 +42,12 @@ namespace Vajehbaz.Controls
                     break;
 
                 case "FindItemInNewWindow":
-                    
+
                     var window = new MainWindow
                     {
                         NotifyIcon = { Visibility = Visibility.Collapsed },
                         WindowState = WindowState.Normal,
-                        SearchTextBox = {Text = selectedText},
+                        SearchTextBox = { Text = selectedText },
                         CloseButton = { Content = "x", Foreground = new SolidColorBrush(Colors.Red) }
                     };
                     await window.FilterResult();
@@ -63,12 +63,12 @@ namespace Vajehbaz.Controls
                     break;
 
                 case "FavoriteItem":
-                    string favorites=Helper.GetSettings().Favorites;
+                    string favorites = Helper.GetSettings().Favorites;
                     selectedText = selectedText.Trim();
                     if (favorites.Contains(selectedText))
                         return;
-                    
-                    Helper.GetSettings().Favorites = (favorites.Trim()+"\n"+selectedText).Trim();
+
+                    Helper.GetSettings().Favorites = (favorites.Trim() + "\n" + selectedText).Trim();
                     Helper.GetSettings().Save();
                     Zoom(Helper.GetActiveWindow<MainWindow>().FavoriteButton);
                     break;
@@ -80,7 +80,7 @@ namespace Vajehbaz.Controls
             ScaleTransform trans = new ScaleTransform();
             target.RenderTransform = trans;
             target.RenderTransformOrigin = new Point(0.5, 0.5);
-            
+
 
             // if you use the same animation for X & Y you don't need anim1, anim2 
             DoubleAnimation anim = new DoubleAnimation
