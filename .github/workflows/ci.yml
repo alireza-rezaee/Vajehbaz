@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+    paths:
+      - '**.sln'
+      - 'src/**'
+      - 'Nuget.Config'
+      - '.github/workflows/ci.yml'
+  pull_request:
+    branches:
+      - main
+      - dev
+    paths:
+      - '**.sln'
+      - 'src/**'
+      - 'Nuget.Config'
+      - '.github/workflows/ci.yml'
+
+jobs:
+  build-package:
+    name: Build (.Net SDK 6.0 , windows-latest)
+    runs-on: windows-latest
+    env:
+      DOTNET_NOLOGO: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup .Net SDK 6.0.x
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      - name: .Net Restore
+        run: dotnet restore
+      - name: .Net Build
+        run: dotnet build --no-restore
