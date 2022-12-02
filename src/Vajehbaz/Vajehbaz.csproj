@@ -76,5 +76,13 @@
             <Generator>PublicSettingsSingleFileGenerator</Generator>
             <LastGenOutput>Settings.Designer.cs</LastGenOutput>
         </None>
+    </ItemGroup>    
+    
+    <ItemGroup>
+      <EditorConfigFiles Remove="C:\Users\alireza-rezaee\source\repos\Vajehbaz\src\Vajehbaz\.editorconfig" />
+    </ItemGroup>    
+    
+    <ItemGroup>
+      <None Include="C:\Users\alireza-rezaee\source\repos\Vajehbaz\src\Vajehbaz\.editorconfig" />
     </ItemGroup>
 </Project>
