@@ -2,17 +2,19 @@
 
 #define AppName "Vajehbaz"
 #define AppExeName AppName+".exe"
-#define dotnet_version "6.0.6"
 #define MyAppURL "https://alireza-rezaee.github.io/Vajehbaz/"
-#define Platform "x64"
+#define Architecture "x64"
+#define Platform "win-x64"
+#define BinDir "..\src\Vajehbaz\bin\Release\net6.0-windows\"
+#define SourceAppDir "..\src\Vajehbaz\bin\Release\net6.0-windows\win-x64\"
 
 //Return app version in SemVer (for example: 4.0.2.3 => 4.0.2)
 #define AppVersion() \
-   GetVersionComponents("..\x64\"+AppExeName, \
+   GetVersionComponents(SourceAppDir + AppExeName, \
        Local[0], Local[1], Local[2], Local[3]), \
    Str(Local[0]) + "." + Str(Local[1]) + "." + Str(Local[2])
 
-[Setup]  
+[Setup]
 AppId={{64847BF6-6691-4CF6-98D7-4692205872F7}
 AppName={#AppName}
 AppVersion={#AppVersion}
@@ -21,9 +23,9 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={userappdata}\{#AppName}
-OutputDir=..\.
+OutputDir={#BinDir}\Setups
 DefaultGroupName={#AppName}
-OutputBaseFilename=VajehbazSetup-v{#AppVersion}-{#Platform}-without-prerequisites
+OutputBaseFilename=VajehbazSetup-v{#AppVersion}-{#Platform}-nsc
 SetupIconFile=setup.ico
 UninstallDisplayIcon={app}\{#AppExeName}
 PrivilegesRequired=lowest
@@ -35,7 +37,7 @@ DisableProgramGroupPage=yes
 
 
 [Files]
-Source: "..\{#Platform}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "{#SourceAppDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppExeName}"
